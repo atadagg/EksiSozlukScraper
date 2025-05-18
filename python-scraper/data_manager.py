@@ -34,11 +34,11 @@ class DataManager:
         old_map = {entry.id: entry for entry in old_data}
         diffs = []
         for entry in new_data:
-            old_entry = old_map.get(entry.id)
-            if not old_entry:
+            old_entry = old_map.get(entry.id) # this is checking if the entry is already in the old data
+            if not old_entry: # if the entry is not in the old data, it is a new entry
                 diffs.append({'id': entry.id, 'type': 'new', 'content': entry.content, 'timestamp': entry.timestamp})
-            elif entry.content != old_entry.content:
-                if entry.content.startswith(old_entry.content):
+            elif entry.content != old_entry.content: # if the entry is in the old data, but the content is different, it is an edited entry
+                if entry.content.startswith(old_entry.content): # we ignore the edits for the original body(only append the edits after the original body)
                     appended = entry.content[len(old_entry.content):]
                     if appended.strip():
                         diffs.append({'id': entry.id, 'type': 'appended', 'content': appended, 'timestamp': entry.timestamp})
@@ -46,11 +46,11 @@ class DataManager:
                     diffs.append({'id': entry.id, 'type': 'edited', 'content': entry.content, 'timestamp': entry.timestamp})
         return diffs
 
-    def save_diff(self, diff: List[Entry]) -> None:
+    def save_diff(self, diff: List[dict]) -> None:
         try:
             with open(self.data_diff_file, 'w', encoding='utf-8') as f:
                 for entry in diff:
-                    json.dump(asdict(entry), f, ensure_ascii=False)
+                    json.dump(entry, f, ensure_ascii=False)
                     f.write('\n')
         except Exception as e:
             print(f"Error saving diff to {self.data_diff_file}: {e}")
