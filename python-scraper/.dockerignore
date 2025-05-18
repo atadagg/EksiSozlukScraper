@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.env
+venv/
+data_debug/
+scraped_data.jsonl
+x_interrupted.jsonl
+data_diff.jsonl
