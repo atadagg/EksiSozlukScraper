@@ -9,8 +9,14 @@ class EksiScraper:
     def __init__(self, base_url: str, interrupted_file: Optional[str] = None):
         self.base_url = base_url
         self.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        self.headers = {'User-Agent': self.user_agent}
-        self.interrupted_file = interrupted_file
+    self.headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+        'Accept-Language': 'en-US,en;q=0.9,tr;q=0.8',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Connection': 'keep-alive',
+        'Referer': 'https://eksisozluk.com/',
+    }        
+    self.interrupted_file = interrupted_file
 
     def get_page_count(self, soup: BeautifulSoup) -> int:
         pager = soup.find('div', class_='pager')
