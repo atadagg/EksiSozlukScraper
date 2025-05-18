@@ -1,0 +1,5 @@
+/venv/
+/data_debug/
+/scraped_data.jsonl
+/x_interrupted.jsonl
+/data_diff.jsonl
