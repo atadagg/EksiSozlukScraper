@@ -18,6 +18,13 @@ public class FileSplitter {
     private static final Gson gson = new Gson();
     private static final TurkishSplitter splitter = new TurkishSplitter();
 
+    private static String capitalizeFirstLetter(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+        return text.substring(0, 1).toUpperCase() + text.substring(1);
+    }
+
     public static void main(String[] args) {
         try {
             Path file = Paths.get(filePath);
@@ -29,7 +36,7 @@ public class FileSplitter {
                 if (Files.exists(file)) {
                     long currentModified = Files.getLastModifiedTime(file).toMillis();
                     if (currentModified > lastModified) {
-                        processFile();
+                        processFile(filePath, outputPath, allSentencesPath);
                         lastModified = currentModified;
                     }
                 }
@@ -41,34 +48,39 @@ public class FileSplitter {
         }
     }
 
-    private static void processFile() {
+    public static void processFile(String inputPath, String outputPath, String allSentencesPath) {
         try {
-            if (!Files.exists(Paths.get(filePath))) {
-                System.err.println("Error: File does not exist at path: " + filePath);
+            if (!Files.exists(Paths.get(inputPath))) {
+                System.err.println("Error: File does not exist at path: " + inputPath);
                 return;
             }
 
             StringBuilder results = new StringBuilder();
             ArrayList<Sentence> allSentences = new ArrayList<>();
 
-            try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(inputPath))) {
                 String line;
                 while ((line = reader.readLine()) != null) {
                     if (line.trim().isEmpty()) continue;
                     
-                    JsonObject entry = gson.fromJson(line, JsonObject.class);
-                    String content = entry.get("content").getAsString();
-                    
-                    if (!content.trim().isEmpty()) {
-                        var sentences = splitter.split(content);
-                        allSentences.addAll(sentences);
+                    try {
+                        JsonObject entry = gson.fromJson(line, JsonObject.class);
+                        String content = entry.get("content").getAsString();
+                        
+                        if (!content.trim().isEmpty()) {
+                            var sentences = splitter.split(content);
+                            allSentences.addAll(sentences);
+                        }
+                    } catch (Exception e) {
+                        System.err.println("Error processing line: " + line);
+                        continue;
                     }
                 }
             }
 
             // Write to the current results file
             for (Sentence sentence : allSentences) {
-                results.append(sentence).append("\n");
+                results.append(capitalizeFirstLetter(sentence.toString())).append("\n");
             }
             Files.writeString(Paths.get(outputPath), results.toString());
 

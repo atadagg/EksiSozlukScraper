@@ -31,23 +31,35 @@ def main():
     DATA_OUTPUT_FILE = "scraped_data.jsonl"
     DATA_DIFF_FILE = "data_diff.jsonl"
     INTERRUPTED_FILE = "x_interrupted.jsonl"
+    
     data_manager = DataManager(DATA_OUTPUT_FILE, DATA_DIFF_FILE)
     scraper = EksiScraper(BASE_URL, interrupted_file=INTERRUPTED_FILE)
-    old_data = data_manager.load_data()
-    new_data = scraper.scrape()
-    diff = data_manager.diff(old_data, new_data)
-    print(f"Diff (new entries): {len(diff)}")
-    data_manager.save_data(new_data)  # replace old with new
-    data_manager.save_diff(diff) # update diff file to pass for processing
-    # (later) Listen to the data change in the diff file in Java
+    
+    try:
+        old_data = data_manager.load_data()
+        new_data = scraper.scrape()
+        
+        # Only proceed if we got some data back
+        if new_data:
+            diff = data_manager.diff(old_data, new_data)
+            print(f"Diff (new entries): {len(diff)}")
+            data_manager.save_data(new_data)  # replace old with new
+            data_manager.save_diff(diff) # update diff file to pass for processing
+            
+            # FOR DEBUGGING
+            save_debug_files(new_data, diff)
 
-    # FOR DEBUGGING
-    save_debug_files(new_data, diff)
-
-    # Delete interrupted file if it exists (successful scrape)
-    if os.path.exists(INTERRUPTED_FILE):
-        os.remove(INTERRUPTED_FILE)
-        print(f"Deleted {INTERRUPTED_FILE} after successful scrape.")
+            # Delete interrupted file if it exists (successful scrape)
+            if os.path.exists(INTERRUPTED_FILE):
+                os.remove(INTERRUPTED_FILE)
+                print(f"Deleted {INTERRUPTED_FILE} after successful scrape.")
+        else:
+            print("No data was scraped, skipping file updates.")
+            
+    except Exception as e:
+        print(f"Error during scraping: {e}")
+        print("Skipping file updates due to error.")
+        return
 
 if __name__ == "__main__":
     main()

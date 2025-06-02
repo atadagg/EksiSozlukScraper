@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="nlp.process.FileSplitterTest" time="0.106" tests="5" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="23"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp/target/test-classes:/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp/target/classes:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Corpus/1.0.24/Corpus-1.0.24.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/DataStructure/1.0.8/DataStructure-1.0.8.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Dictionary/1.0.37/Dictionary-1.0.37.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Math/1.0.7/Math-1.0.7.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Util/1.0.7/Util-1.0.7.jar:/Users/atatandagidir/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/atatandagidir/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/atatandagidir/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/atatandagidir/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/atatandagidir/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="Europe/Istanbul"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="23"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="TR"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp/target/surefire/surefirebooter-20250519000926897_3.jar /Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp/target/surefire 2025-05-19T00-09-26_848-jvmRun1 surefire-20250519000926897_1tmp surefire_0-20250519000926897_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp/target/test-classes:/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp/target/classes:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Corpus/1.0.24/Corpus-1.0.24.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/DataStructure/1.0.8/DataStructure-1.0.8.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Dictionary/1.0.37/Dictionary-1.0.37.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Math/1.0.7/Math-1.0.7.jar:/Users/atatandagidir/.m2/repository/io/github/starlangsoftware/Util/1.0.7/Util-1.0.7.jar:/Users/atatandagidir/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/atatandagidir/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/atatandagidir/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/atatandagidir/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/atatandagidir/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/atatandagidir/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/atatandagidir"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-01-21"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp/target/surefire/surefirebooter-20250519000926897_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="23.0.2"/>
+    <property name="user.name" value="atatandagidir"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="15.3.2"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/atatandagidir/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/"/>
+    <property name="java.version" value="23.0.2"/>
+    <property name="user.dir" value="/Users/atatandagidir/Desktop/software/EksiSozlukScraper/java-nlp"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/atatandagidir/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="23.0.2"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="67.0"/>
+  </properties>
+  <testcase name="testInvalidJson" classname="nlp.process.FileSplitterTest" time="0.066">
+    <system-out><![CDATA[[00:09:27] Updated results in: /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit2794273305487964847/test_output.txt and appended to /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit2794273305487964847/test_all_sentences.txt
+]]></system-out>
+    <system-err><![CDATA[Error processing line: invalid json
+]]></system-err>
+  </testcase>
+  <testcase name="testProcessSingleEntry" classname="nlp.process.FileSplitterTest" time="0.009">
+    <system-out><![CDATA[[00:09:27] Updated results in: /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit16194396841233765424/test_output.txt and appended to /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit16194396841233765424/test_all_sentences.txt
+]]></system-out>
+  </testcase>
+  <testcase name="testAppendToAllSentences" classname="nlp.process.FileSplitterTest" time="0.003">
+    <system-out><![CDATA[[00:09:27] Updated results in: /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit7566736268006131757/test_output.txt and appended to /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit7566736268006131757/test_all_sentences.txt
+[00:09:27] Updated results in: /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit7566736268006131757/test_output.txt and appended to /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit7566736268006131757/test_all_sentences.txt
+]]></system-out>
+  </testcase>
+  <testcase name="testProcessMultipleEntries" classname="nlp.process.FileSplitterTest" time="0.005">
+    <system-out><![CDATA[[00:09:27] Updated results in: /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit13086568013442859357/test_output.txt and appended to /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit13086568013442859357/test_all_sentences.txt
+]]></system-out>
+  </testcase>
+  <testcase name="testProcessEmptyFile" classname="nlp.process.FileSplitterTest" time="0.002">
+    <system-out><![CDATA[[00:09:27] Updated results in: /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit7244450568480323410/test_output.txt and appended to /var/folders/w2/h8htkrt90yg3c6y_36f_q40r0000gn/T/junit7244450568480323410/test_all_sentences.txt
+]]></system-out>
+  </testcase>
+</testsuite>
