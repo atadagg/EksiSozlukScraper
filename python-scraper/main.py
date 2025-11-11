@@ -27,7 +27,7 @@ def save_debug_files(new_data, diff):
             f.write("\n")
 
 def main():
-    BASE_URL = "https://eksisozluk.com/turkiyede-5-milyon-ev-genci-olmasi--7980996"
+    BASE_URL = "https://eksisozluk.com/6-subat-2023-kahramanmaras-depremi--7568601"
     DATA_OUTPUT_FILE = "scraped_data.jsonl"
     DATA_DIFF_FILE = "data_diff.jsonl"
     INTERRUPTED_FILE = "x_interrupted.jsonl"
